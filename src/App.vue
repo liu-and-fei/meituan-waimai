@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    美团外卖项目
+    <router-view></router-view>
   </div>
 </template>
 
