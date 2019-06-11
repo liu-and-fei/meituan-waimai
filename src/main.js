@@ -4,6 +4,9 @@ import router from './router'
 import store from './store/index'
 
 Vue.config.productionTip = false;
+// import { Tabbar, TabbarItem } from 'vant';
+
+// Vue.use(Tabbar).use(TabbarItem);
 
 new Vue({
   router,
