@@ -1,4 +1,5 @@
 <template>
+
     <ul class="tabbar">
     <router-link
       v-for="tab in tabs"
@@ -35,7 +36,7 @@ export default {
   padding: 0;
   margin: 0;
   z-index: 100;
-  background: #fff;
+  background: #fafafa;
   list-style: none;
 }
 .tabbar li{
