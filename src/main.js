@@ -6,10 +6,10 @@ import vant from 'vant'
 import 'vant/lib/index.css'
 Vue.use(vant)
 
+import { NavBar, Search, Icon } from 'vant';
 Vue.config.productionTip = false;
-// import { Tabbar, TabbarItem } from 'vant';
 
-// Vue.use(Tabbar).use(TabbarItem);
+Vue.use(NavBar).use(Search).use(Icon);
 
 new Vue({
   router,
