@@ -3,10 +3,10 @@ import App from './App.vue'
 import router from './router'
 import store from './store/index'
 
-import { NavBar, Search, Icon } from 'vant';
+import { NavBar, Search, Icon, Dialog } from 'vant';
 Vue.config.productionTip = false;
 
-Vue.use(NavBar).use(Search).use(Icon);
+Vue.use(NavBar).use(Search).use(Icon).use(Dialog);
 
 new Vue({
   router,

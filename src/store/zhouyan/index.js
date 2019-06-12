@@ -3,7 +3,8 @@ export default {
   namespaced: true,
 
   state: {
-    classList: []
+    classList: [],
+    searchList: []
   },
 
   getters: {
@@ -13,6 +14,9 @@ export default {
   mutations: {
     SETCLASSLIST (state, list) {
       state.classList = list.reverse().splice(10).reverse();
+    },
+    SEARCHLIST (state, list) {
+      state.searchList = list;
     }
 
   },
@@ -23,8 +27,17 @@ export default {
         let res = response.data
         // console.log(res)
         let arr = res.data.kingkongList;
-        console.log(arr);
+        // console.log(arr);
         commit('SETCLASSLIST', arr);
+      })
+    },
+    getSearchList ({ commit }) {
+      axios.post('http://localhost:8080/meituan/openh5/search/hotlabel?entranceId=&page_index=0&geoType=2&cache=false&wm_poi_id_list=%5B0%2C0%2C0%2C0%2C0%5D&wm_latitude=&wm_longitude=&wm_actual_latitude=22674185&wm_actual_longitude=113812655&_token=').then(respone => {
+        let res = respone.data;
+        // console.log(res)
+        let arr = res.data.hotLabelList;
+        // console.log(arr)
+        commit('SEARCHLIST', arr);
       })
     }
 
