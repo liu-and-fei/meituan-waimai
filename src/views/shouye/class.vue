@@ -1,34 +1,39 @@
 <template>
   <div>
     <section class="classify">
-      <a href="#">
-        <img src="http://p1.meituan.net/jungle/8b5e1702d4145ccf058ba5fb31008c5310912.png">
-        <p>美食</p>
+      <a href="javaScript:;" v-for="item in classList" :key="item.cateId">
+        <img :src="item.icon">
+        <p>{{ item.name }}</p>
       </a>
-      <a href="#">
-        <img src="http://p0.meituan.net/jungle/45ff2f098a20a77122bff8385192f0ec10547.png">
-        <p>蔬菜水果</p>
-      </a>
-      <a href="#">
-        <img src="http://p1.meituan.net/jungle/12a9834827909fa55f54bce96e67470711250.png">
-        <p>美食</p>
-      </a>
+      <span>---附近商家---</span>
     </section>
   </div>
 </template>
 <script>
+import { mapState, mapActions } from 'vuex';
 export default {
-  computed: {},
+  computed: {
+    ...mapState('zhouyan', ['classList'])
+  },
 
-  methods: {}
+  methods: {
+    ...mapActions('zhouyan', ['getClassList'])
+    // ...mapMutations('zhouyan',[])
+  },
+
+  created () {
+    this.getClassList();
+  },
+
+  mounted () {}
 };
 </script>
 
 <style scope>
 .classify {
-  height: 182px;
+  height: 200px;
   width: 100%;
-  margin-top: 50px;
+  margin-top: 55px;
   box-sizing: border-box;
   padding: 0.24rem 0 0 0;
   display: flex;
@@ -36,6 +41,13 @@ export default {
   overflow-x: auto;
   overflow-y: hidden;
   flex-shrink: 0;
+}
+.classify span {
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+  color: #333;
+  font-size: 17px;
 }
 .classify a {
   height: 64px;
