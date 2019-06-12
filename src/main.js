@@ -2,14 +2,11 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store/index'
-import vant from 'vant'
-import 'vant/lib/index.css'
-Vue.use(vant)
 
-import { NavBar, Search, Icon } from 'vant';
+import { NavBar, Search, Icon, Cell, CellGroup } from 'vant';
 Vue.config.productionTip = false;
 
-Vue.use(NavBar).use(Search).use(Icon);
+Vue.use(NavBar).use(Search).use(Icon).use(Cell).use(CellGroup);
 
 new Vue({
   router,
