@@ -3,7 +3,7 @@ export default {
   namespaced: true,
 
   state: {
-
+    classList: []
   },
 
   getters: {
@@ -11,10 +11,15 @@ export default {
   },
 
   mutations: {
-
+    // SETCLASSLIST (state, list) {
+    //   this.state.classList = res;
+    // }
   },
 
   actions: {
+    getClassList ({ commit }) {
+
+    }
 
   }
 
