@@ -7,7 +7,7 @@ import zhouyan from './zhouyan'
 
 Vue.use(Vuex);
 
-const store = new Vuex.Store({
+export default new Vuex.Store({
   modules: {
     congcong,
     huachao,
@@ -16,6 +16,6 @@ const store = new Vuex.Store({
   }
 });
 
-export default {
-  store
-}
+// export default {
+//   store
+// }
