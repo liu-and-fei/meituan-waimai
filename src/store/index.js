@@ -15,3 +15,8 @@ export default new Vuex.Store({
     zhouyan
   }
 });
+
+// export default {
+//   store
+// }
+

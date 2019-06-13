@@ -1,13 +1,20 @@
 <template>
+  <div id="home">
     <div>
         <router-view></router-view>
         <Tabbar :tabs='tabs'></Tabbar>
      </div>
+    <!--  筛选栏-->
+    <colation></colation>
+  </div>
 </template>
 
 <script>
+import colation from '@/components/shouye/colation';
 import Tabbar from '../shouye/tabbar.vue'
+
 export default {
+  name: 'home',
   data () {
     return {
       tabs: [
@@ -18,8 +25,12 @@ export default {
     }
   },
   components: {
+    colation,
     Tabbar
   }
 }
-
 </script>
+
+<style lang="scss">
+
+</style>
