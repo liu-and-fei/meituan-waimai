@@ -88,6 +88,7 @@ export default {
           // 点击确认按钮后的调用
           this.historyList = []
           this.isShow = false
+          localStorage.removeItem('history')
           console.log('点击了确认按钮噢');
         })
         .catch(() => {
