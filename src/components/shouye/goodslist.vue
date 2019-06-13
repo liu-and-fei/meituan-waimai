@@ -1,7 +1,6 @@
 <template>
-  <div class="goods">
-    <ul>
-      <li v-for="item in shopList" :key="item.mtWmPoiId">
+    <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
+      <van-cell v-for="item in shopList" :key="item.mtWmPoiId">
         <div class="goods-pic">
           <img :src="item.picUrl" alt="">
         </div>
@@ -20,16 +19,9 @@
           <div class="shopdetail-line2">
             <div><span>{{ item.minPriceTip }}</span><span v-if="item.shippingFeeTip"> | {{ item.shippingFeeTip }}</span><span v-if="item.averagePriceTip"> | {{ item.averagePriceTip }}</span></div>
           </div>
-          <div class="shopdetail-line3">
-            <div></div>
-          </div>
-          <div class="shopdetail-line4">
-            <div></div>
-          </div>
         </div>
-      </li>
-    </ul>
-  </div>
+      </van-cell>
+    </van-list>
 </template>
 
 <script>
@@ -37,12 +29,31 @@ import { mapState, mapActions } from 'vuex';
 export default {
   name: 'goodslist',
   data () {
-    return {}
+    return {
+      list: [],
+      loading: false,
+      finished: false
+    };
   },
   methods: {
     ...mapActions('liufei', [
       'getGoodsList'
-    ])
+    ]),
+    onLoad () {
+      // 异步更新数据
+      setTimeout(() => {
+        for (let i = 0; i < 10; i++) {
+          this.list.push(this.list.length + 1);
+        }
+        // 加载状态结束
+        this.loading = false;
+
+        // 数据全部加载完成
+        if (this.list.length >= 40) {
+          this.finished = true;
+        }
+      }, 500);
+    }
   },
   computed: {
     ...mapState('liufei', [
@@ -56,16 +67,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.goods{
+.van-list {
   width: 100%;
-  ul{
-    width: 100%;
-    li{
+
+  .van-cell {
+    padding: 0;
+    .van-cell__value {
       padding: 0 10px;
       box-sizing: border-box;
       margin: 10px 0 25px;
       display: flex;
-      .goods-pic{
+
+      .goods-pic {
         width: 76px;
         height: 57px;
         position: relative;
@@ -74,15 +87,18 @@ export default {
         flex-shrink: 0;
         border-radius: 2px;
         overflow: hidden;
-        img{
+
+        img {
           width: 100%;
           height: 100%;
         }
       }
-      .goods-info{
+
+      .goods-info {
         width: 78%;
         color: #333;
-        h2{
+
+        h2 {
           width: 80%;
           font-size: 16px;
           color: #333;
@@ -92,53 +108,60 @@ export default {
           text-overflow: ellipsis;
           font-weight: 600;
         }
-        &>div{
+
+        &>div {
+          height: 18px;
           margin-top: 4px;
           font-size: 11px;
+          line-height: 16px;
+          align-items: center;
+          align-content: center;
         }
-        .shopdetail-line1{
+
+        .shopdetail-line1 {
           display: flex;
           justify-content: space-around;
-          div:nth-child(1){
+
+          div:nth-child(1) {
             width: 52%;
+            height: 100%;
             display: flex;
             justify-content: space-around;
-            p{
+
+            p {
               display: flex;
               justify-content: space-around;
               align-items: center;
-              i{
+
+              i {
                 width: 13px;
                 height: 13px;
                 background: url("~@/../public/images/xing.png") no-repeat 0 0;
                 background-size: cover;
               }
             }
-            span{
+
+            span {
               font-size: 11px;
             }
           }
-          div:nth-child(2){
+
+          div:nth-child(2) {
             width: 48%;
-            p{
+            height: 100%;
+
+            p {
               float: right;
             }
           }
         }
-        .shopdetail-line2{
+
+        .shopdetail-line2 {
 
         }
       }
     }
-    li:nth-last-child(1){
-      height: 60px;
-      margin-bottom: 50px;
-      color: #333;
-      span{
-        display: block;
-        margin: 0 auto;
-      }
-    }
   }
 }
+
 </style>
