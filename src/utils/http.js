@@ -6,7 +6,7 @@ http.defaults.timeout = 10000;
 
 http.interceptors.response.use(response => {
   // 在这里设置响应拦截
-  return response.data;
+  return response;
 });
 
 export default http;
