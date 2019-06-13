@@ -5,10 +5,10 @@ import store from './store/index'
 import './styles/base.less'
 // import vant from 'vant'
 // import 'vant/lib/index.css'
-// Vue.use(vant);
+// Vue.use(Vant);
 
-import { Tab, Tabs, Badge, BadgeGroup, SubmitBar, Dialog, NavBar, Search, Icon, Cell, CellGroup } from 'vant'
 
+import { Tab, Tabs, Badge, BadgeGroup, SubmitBar, Dialog, NavBar, Search, Icon, Cell, CellGroup, List } from 'vant'
 Vue.use(Tab)
   .use(Tabs)
   .use(Badge)
@@ -19,7 +19,9 @@ Vue.use(Tab)
   .use(Search)
   .use(Icon)
   .use(Cell)
-  .use(CellGroup);
+  .use(CellGroup)
+  .use(List);
+
 
 Vue.config.productionTip = false;
 

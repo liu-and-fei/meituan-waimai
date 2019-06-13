@@ -43,6 +43,7 @@
     "rules": {
       "no-console": "off",
       "no-debugger": "off",
+      "comma-dangle": "off",
       "semi": "off"
     },
     "parserOptions": {

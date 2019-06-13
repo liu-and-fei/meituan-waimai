@@ -4,13 +4,11 @@
         <router-view></router-view>
         <Tabbar :tabs='tabs'></Tabbar>
      </div>
-    <!--  筛选栏-->
-    <colation></colation>
   </div>
 </template>
 
 <script>
-import colation from '@/components/shouye/colation';
+
 import Tabbar from '../shouye/tabbar.vue'
 
 export default {
@@ -25,12 +23,15 @@ export default {
     }
   },
   components: {
-    colation,
     Tabbar
   }
 }
 </script>
 
 <style lang="scss">
-
+#home{
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
 </style>

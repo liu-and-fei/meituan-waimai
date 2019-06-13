@@ -23,7 +23,7 @@ export default {
         let res = response.data
         // console.log(res)
         let arr = res.data.kingkongList;
-        console.log(arr);
+        // console.log(arr);
         commit('SETCLASSLIST', arr);
       })
     }
