@@ -3,6 +3,7 @@ export default {
   namespaced: true,
 
   state: {
+    iserror: false,
     sortVOList: [],
     shopList: []
   },
@@ -16,7 +17,7 @@ export default {
       state.sortList = list.sortVOList;
     },
     SETGOODSLIST (state, list) {
-      state.shopList = list.shopList;
+      state.shopList.push(...list.shopList);
     }
   },
 
@@ -30,14 +31,16 @@ export default {
           console.log(err);
         });
     },
-    getGoodsList ({ commit }) {
-      http.post('http://localhost:8080/meituan/openh5/homepage/poilist?startIndex=0&sortId=0&multiFilterIds=&sliderSelectCode=&sliderSelectMin=&sliderSelectMax=&geoType=2&rankTraceId=&uuid=23482CD441C9F6C8B595E824E4280BABEB6FFD3020F32E3E3093F9344C10F9A1&platform=3&partner=4&originUrl=http%3A%2F%2Fh5.waimai.meituan.com%2Fwaimai%2Fmindex%2Fhome&riskLevel=71&optimusCode=10&wm_latitude=0&wm_longitude=0&wm_actual_latitude=22694137&wm_actual_longitude=113793439&_token=')
+    getGoodsList ({ commit, state }) {
+      http.post('http://localhost:8080/meituan/openh5/homepage/poilist?startIndex=0&sortId=0&multiFilterIds=&sliderSelectCode=&sliderSelectMin=&sliderSelectMax=&geoType=2&rankTraceId=&uuid=16b4fc580b2c8-064dfcd01291df-2d604637-3d10d-16b4fc580b3c8&platform=3&partner=4&originUrl=http%3A%2F%2Fh5.waimai.meituan.com%2Fwaimai%2Fmindex%2Fhome&riskLevel=71&optimusCode=10&wm_latitude=22626049&wm_longitude=113837908&wm_actual_latitude=&wm_actual_longitude=&_token=')
         .then(res => {
+          state.iserror = false;
           commit('SETGOODSLIST', res.data.data);
           // console.log(res.data.data.shopList);
         })
         .catch(err => {
           console.log(err);
+          state.iserror = true;
         })
     }
   }

@@ -7,7 +7,6 @@ import './styles/base.less'
 // import 'vant/lib/index.css'
 // Vue.use(Vant);
 
-
 import { Tab, Tabs, Badge, BadgeGroup, SubmitBar, Dialog, NavBar, Search, Icon, Cell, CellGroup, List } from 'vant'
 Vue.use(Tab)
   .use(Tabs)
@@ -21,7 +20,6 @@ Vue.use(Tab)
   .use(Cell)
   .use(CellGroup)
   .use(List);
-
 
 Vue.config.productionTip = false;
 
