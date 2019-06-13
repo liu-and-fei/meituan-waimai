@@ -7,17 +7,20 @@ import './styles/base.less'
 // import 'vant/lib/index.css'
 // Vue.use(vant);
 
-import { NavBar, Search, Icon } from 'vant';
-Vue.use(NavBar).use(Search).use(Icon);
-
-import { Tab, Tabs, Badge, BadgeGroup, SubmitBar, Dialog } from 'vant'
+import { Tab, Tabs, Badge, BadgeGroup, SubmitBar, Dialog,NavBar, Search, Icon, Cell, CellGroup } from 'vant'
 
 Vue.use(Tab)
-Vue.use(Tabs)
-Vue.use(Badge)
-Vue.use(BadgeGroup)
-Vue.use(SubmitBar)
-Vue.use(Dialog)
+  .use(Tabs)
+  .use(Badge)
+  .use(BadgeGroup)
+  .use(SubmitBar)
+  .use(Dialog)
+  .use(NavBar)
+  .use(Search)
+  .use(Icon)
+  .use(Cell)
+  .use(CellGroup);
+
 Vue.config.productionTip = false;
 
 new Vue({

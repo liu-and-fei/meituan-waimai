@@ -7,6 +7,8 @@ import myde from '../views/myde/index.vue'
 import detail from '../views/detail/index.vue'
 import search from '../views/shouye/search.vue'
 import site from '../views/shouye/site.vue'
+import login from '../views/login/index.vue'
+import reg from '../views/reg/index.vue'
 
 Vue.use(VueRouter);
 
@@ -49,6 +51,14 @@ const routes = [
   {
     path: '/site',
     component: site
+  },
+  {
+    path: '/login',
+    component: login
+  },
+  {
+    path: '/reg',
+    component: reg
   }
 ]
 

@@ -29,9 +29,6 @@ export default {
 
 <style lang="scss">
 @import '~@/styles/common/reset.css';
-element.style {
-    background-image: url(http://s3plus.meituan.net/v1/mss_e2821d7f0cfe4ac1bf9202ecf9590e67/cdn-prod/file:9096d347/835c1ccacf724c558dc7e8247d7dc9d3.png);
-}
 .main{
     background: rgb(240, 240, 240);
     height: 100vh;
