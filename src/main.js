@@ -1,12 +1,28 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
+import router from './router/index'
 import store from './store/index'
+import './styles/base.less'
+// import vant from 'vant'
+// import 'vant/lib/index.css'
+// Vue.use(Vant);
 
-import { NavBar, Search, Icon, Dialog } from 'vant';
+import { Tab, Tabs, Badge, BadgeGroup, SubmitBar, Dialog, NavBar, Search, Icon,, Dialog, Cell, CellGroup, List } from 'vant'
+Vue.use(Tab)
+  .use(Tabs)
+  .use(Badge)
+  .use(BadgeGroup)
+  .use(SubmitBar)
+  .use(Dialog)
+  .use(NavBar)
+  .use(Search)
+  .use(Icon)
+  .use(Dialog)
+  .use(Cell)
+  .use(CellGroup)
+  .use(List);
+
 Vue.config.productionTip = false;
-
-Vue.use(NavBar).use(Search).use(Icon).use(Dialog);
 
 new Vue({
   router,

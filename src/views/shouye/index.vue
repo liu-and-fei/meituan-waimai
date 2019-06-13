@@ -1,13 +1,18 @@
 <template>
+  <div id="home">
     <div>
         <router-view></router-view>
         <Tabbar :tabs='tabs'></Tabbar>
      </div>
+  </div>
 </template>
 
 <script>
+
 import Tabbar from '../shouye/tabbar.vue'
+
 export default {
+  name: 'home',
   data () {
     return {
       tabs: [
@@ -21,5 +26,12 @@ export default {
     Tabbar
   }
 }
-
 </script>
+
+<style lang="scss">
+#home{
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+</style>
