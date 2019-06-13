@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="box-main">
         <div class="main-header">
             <div class="my-to">
             </div>
@@ -10,7 +10,7 @@
             <van-cell title="收货地址" icon="location-o" is-link to=""/>
             <van-cell title="常见问题" icon="question-o" is-link to=""/>
             <van-cell title="美团协议与说明" icon="orders-o" is-link to=""/>
-            <van-cell title="退出登录" icon="close" is-link to=""/>
+            <van-cell title="退出登录" icon="close" is-link @click="quit"/>
         </div>
         <div class="phone">
             <p>客服电话：10109777</p>
@@ -22,14 +22,29 @@
 </template>
 
 <script>
+import { Dialog } from 'vant'
 export default {
-
+  methods: {
+    quit () {
+      Dialog.confirm({
+        title: '是否退出'
+      }).then(() => {
+        setTimeout(() => {
+          window.localStorage.removeItem('ifLogin');
+          console.log(this.$router);
+          this.$router.replace('/login');
+        }, 1000)
+      }).catch(() => {
+        // on cancel
+      });
+    }
+  }
 }
 </script>
 
 <style lang="scss">
 @import '~@/styles/common/reset.css';
-.main{
+.box-main{
     background: rgb(240, 240, 240);
     height: 100vh;
     .main-header{
@@ -68,6 +83,9 @@ export default {
             padding: 8px 10px 8px 0;
             border-bottom: 1px solid #e3e3e3;
             cursor: pointer;
+            i{
+                width: 0;
+            }
         }
     }
     .phone{

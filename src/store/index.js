@@ -19,4 +19,3 @@ export default new Vuex.Store({
 // export default {
 //   store
 // }
-

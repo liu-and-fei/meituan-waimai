@@ -49,6 +49,10 @@ export default {
     font-size:12px;
     color: #999
 }
+.tabbar li i {
+  text-align: center;
+  width: 125px;
+}
 .tabbar li .iconfont{
       font-size: 26px;
       margin-bottom: 4px;
