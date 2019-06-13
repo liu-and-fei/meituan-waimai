@@ -7,7 +7,7 @@ import './styles/base.less'
 // import 'vant/lib/index.css'
 // Vue.use(vant);
 
-import { Tab, Tabs, Badge, BadgeGroup, SubmitBar, Dialog,NavBar, Search, Icon, Cell, CellGroup } from 'vant'
+import { Tab, Tabs, Badge, BadgeGroup, SubmitBar, Dialog, NavBar, Search, Icon, Cell, CellGroup } from 'vant'
 
 Vue.use(Tab)
   .use(Tabs)

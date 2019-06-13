@@ -47,8 +47,10 @@ export default {
         console.log(login);
         setTimeout(() => {
           if (login != null) {
-          // let redirect = this.$route.query.redirect || '/myde';
-            this.$router.replace('/myde');
+            console.log(this.$route);
+            let redirect = this.$route.query.redirect || '/myde';
+            window.localStorage.setItem('ifLogin', true);
+            this.$router.replace(redirect);
           } else {
             this.$refs.info.innerHTML = '登录失败'
           }

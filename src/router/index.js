@@ -20,11 +20,17 @@ const routes = [
     children: [
       {
         path: 'dingdan',
-        component: dingdan
+        component: dingdan,
+        meta: {
+          requireLogin: true
+        }
       },
       {
         path: 'myde',
-        component: myde
+        component: myde,
+        meta: {
+          requireLogin: true
+        }
       },
       {
         path: 'shouye1',
@@ -65,5 +71,25 @@ const routes = [
 const router = new VueRouter({
   routes
 });
+
+// 全局前置守卫
+router.beforeEach((to, from, next) => {
+// 路由拦截
+  if (to.meta.requireLogin) {
+    if (window.localStorage.getItem('ifLogin')) {
+      next()
+    } else {
+      console.log(to)
+      next({
+        path: '/login',
+        query: {
+          redirect: to.fullPath
+        }
+      })
+    }
+  } else {
+    next()
+  }
+})
 
 export default router;
