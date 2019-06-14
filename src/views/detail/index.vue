@@ -84,7 +84,7 @@ export default {
       var lists = this.foodList.data.categoryList
       var height = 0
       for (var i = 0; i < index; i++) {
-        height += lists[i].spuList.length * 107
+        height += lists[i].spuList.length * 107 + 36
         console.log(height)
       }
       document.getElementsByClassName('detail-list')[0].style.top = -height + 'px'
@@ -112,7 +112,6 @@ export default {
     margin-left: 5px;
     margin-top: 5px;
   }
-
   .detail-pic{
     display: flex;
     width: 100%;
