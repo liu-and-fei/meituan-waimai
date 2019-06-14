@@ -6,12 +6,10 @@ import store from './store/index'
 // import 'vant/lib/index.css'
 // Vue.use(Vant);
 
-import { Tab, Tabs, Badge, BadgeGroup, SubmitBar, NavBar, Search, Icon, Dialog, Cell, CellGroup, List } from 'vant';
+import { Tab, Tabs, SubmitBar, NavBar, Search, Icon, Dialog, Cell, CellGroup, List, Actionsheet, Loading } from 'vant';
 Vue
   .use(Tab)
   .use(Tabs)
-  .use(Badge)
-  .use(BadgeGroup)
   .use(SubmitBar)
   .use(NavBar)
   .use(Search)
@@ -19,7 +17,9 @@ Vue
   .use(Dialog)
   .use(Cell)
   .use(CellGroup)
-  .use(List);
+  .use(List)
+  .use(Actionsheet)
+  .use(Loading);
 
 Vue.config.productionTip = false;
 
