@@ -86,6 +86,7 @@ input{
   .main{
     background: #fff;
     height: 0;
+    padding-top: 60px;
   }
   .top {
     margin: 0;

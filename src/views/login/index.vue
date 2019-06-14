@@ -78,10 +78,11 @@ input{
   .main{
     background: #fff;
     height: 0;
-    padding-top:60px;
+    padding-top: 60px;
   }
   .top {
     margin: 0;
+    /* margin-top: 60px; */
     margin-bottom: 48px;
     padding: 0;
     text-align: center
