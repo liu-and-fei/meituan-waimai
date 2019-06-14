@@ -4,7 +4,7 @@ import router from './router'
 import store from './store/index'
 import './styles/base.less'
 
-import { Tab, Tabs, Badge, BadgeGroup, SubmitBar, Dialog } from 'vant'
+import { Tab, Tabs, Badge, BadgeGroup, SubmitBar, Dialog, Actionsheet, Loading } from 'vant'
 
 Vue.use(Tab)
 Vue.use(Tabs)
@@ -12,6 +12,9 @@ Vue.use(Badge)
 Vue.use(BadgeGroup)
 Vue.use(SubmitBar)
 Vue.use(Dialog)
+Vue.use(Actionsheet)
+Vue.use(Loading)
+
 Vue.config.productionTip = false;
 
 new Vue({
