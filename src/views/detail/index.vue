@@ -74,7 +74,7 @@ export default {
 
   created () {
     this.getFoodList();
-    this.getEstimate()
+    this.getEstimate();
   }
 
 }
