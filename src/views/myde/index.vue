@@ -3,7 +3,7 @@
         <div class="main-header">
             <div class="my-to">
             </div>
-            <p>oLM847059302</p>
+            <p>往事如风</p>
         </div>
         <div class="main-list">
             <van-cell title="美团红包" icon="bill-o" is-link to="" />
@@ -22,8 +22,13 @@
 </template>
 
 <script>
-import { Dialog } from 'vant'
+import { Dialog } from 'vant';
+import { mapState, mapActions } from 'vuex'
 export default {
+  components: {
+    ...mapState('huachao', ['mylist'])
+  },
+
   methods: {
     quit () {
       Dialog.confirm({
@@ -37,13 +42,18 @@ export default {
       }).catch(() => {
         // on cancel
       });
-    }
+    },
+    ...mapActions('huachao', ['getmylist'])
+  },
+
+  created () {
+    this.getmylist();
   }
 }
 </script>
 
 <style lang="scss">
-@import '~@/styles/common/reset.css';
+@import '~@/styles/reset.css';
 .box-main{
     background: rgb(240, 240, 240);
     height: 100vh;

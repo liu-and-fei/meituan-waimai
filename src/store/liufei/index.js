@@ -31,7 +31,7 @@ export default {
         });
     },
     getGoodsList ({ commit }) {
-      http.post('http://localhost:8080/meituan/openh5/homepage/poilist?startIndex=0&sortId=0&multiFilterIds=&sliderSelectCode=&sliderSelectMin=&sliderSelectMax=&geoType=2&rankTraceId=&uuid=23482CD441C9F6C8B595E824E4280BABEB6FFD3020F32E3E3093F9344C10F9A1&platform=3&partner=4&originUrl=http%3A%2F%2Fh5.waimai.meituan.com%2Fwaimai%2Fmindex%2Fhome&riskLevel=71&optimusCode=10&wm_latitude=0&wm_longitude=0&wm_actual_latitude=22694137&wm_actual_longitude=113793439&_token=')
+      http.post('http://localhost:8080/meituan/openh5/homepage/poilist?startIndex=0&sortId=0&multiFilterIds=&sliderSelectCode=&sliderSelectMin=&sliderSelectMax=&geoType=2&rankTraceId=&uuid=B6F9432FBAB2F5280AF703A6A0843AAE1B9855D4335CB89F07E7140A271ED5BD&platform=3&partner=4&originUrl=http%3A%2F%2Fh5.waimai.meituan.com%2Fwaimai%2Fmindex%2Fhome&riskLevel=71&optimusCode=10&wm_latitude=0&wm_longitude=0&wm_actual_latitude=22694137&wm_actual_longitude=113793439&_token=')
         .then(res => {
           commit('SETGOODSLIST', res.data.data);
           // console.log(res.data.data.shopList);
