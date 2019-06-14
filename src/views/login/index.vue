@@ -1,5 +1,5 @@
 <template>
-<div class="main">
+<div class="main-login">
     <div class="top">
       <div class=“top-tu”>
         <img class="top-img"
@@ -75,7 +75,7 @@ input{
   border-radius: 0;
   background: #fff;
 }
-  .main{
+  .main-login{
     background: #fff;
     height: 0;
     padding-top: 60px;

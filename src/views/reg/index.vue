@@ -1,5 +1,5 @@
 <template>
-<div class="main">
+<div class="main-reg">
     <div class="top">
       <div class=“top-tu”>
         <img class="top-img"
@@ -83,12 +83,12 @@ input{
   border-radius: 0;
   background: #fff;
 }
-  .main{
+  .main-reg{
     background: #fff;
     height: 0;
     padding-top: 60px;
   }
-  .top {
+ .main-reg .top {
     margin: 0;
     margin-bottom: 48px;
     padding: 0;
@@ -104,7 +104,7 @@ input{
     padding: 0;
     display: block;
   }
-  p{
+.top-tu p{
     font-size: 18px;
     height: 24px;
     line-height: 24px;
