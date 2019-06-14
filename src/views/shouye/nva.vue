@@ -6,7 +6,7 @@
       <div slot="left" class="left">
           <i :class="['iconfont','icon-location']" class="dingwei"></i>
           <router-link to='/site' tag="span">
-                深圳西部硅谷
+                {{ site }}
           </router-link>
           <i :class="['iconfont','icon-xiangyou']" class="xiangyou"></i>
       </div>
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-
+import { mapState } from 'vuex';
 export default {
 
   methods: {
@@ -30,6 +30,9 @@ export default {
       // alert(1)
       this.$router.push({ path: '/search' });
     }
+  },
+  computed: {
+    ...mapState('zhouyan', ['site'])
   }
 
 }
