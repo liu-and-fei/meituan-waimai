@@ -1,5 +1,15 @@
+// 配置文件
+
 module.exports = {
+  // 选项
   devServer: {
-    proxy: 'http://i.waimai.meituan.com/'
+    proxy: {
+      '/meituan': {
+        target: 'http://i.waimai.meituan.com/',
+        pathRewrite: {
+          '^/meituan': ''
+        }
+      }
+    }
   }
-}
+};
