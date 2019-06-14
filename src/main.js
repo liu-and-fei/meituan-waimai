@@ -8,6 +8,7 @@ import './styles/base.less'
 // Vue.use(Vant);
 
 import { Tab, Tabs, Badge, BadgeGroup, SubmitBar, Dialog, NavBar, Search, Icon,, Dialog, Cell, CellGroup, List } from 'vant'
+
 Vue.use(Tab)
   .use(Tabs)
   .use(Badge)

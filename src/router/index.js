@@ -92,4 +92,9 @@ router.beforeEach((to, from, next) => {
   }
 })
 
+// 全局后置守卫
+router.afterEach((to, from) => {
+  console.log('后置')
+})
+
 export default router;
