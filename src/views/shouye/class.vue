@@ -59,6 +59,9 @@ export default {
   color: #131313;
   align-items: center;
 }
+.classify a p{
+  font-size: 12px;
+}
 .classify a img {
   width: 44px;
 }
