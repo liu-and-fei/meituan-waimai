@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~@/styles/common/reset.css';
+@import '~@/styles/reset.css';
 .box-main{
     background: rgb(240, 240, 240);
     height: 100vh;

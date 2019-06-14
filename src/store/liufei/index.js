@@ -4,6 +4,9 @@ export default {
 
   state: {
     iserror: false,
+    loading: false,
+    finished: false,
+    hasNextPage: true,
     sortVOList: [],
     shopList: []
   },
@@ -13,6 +16,9 @@ export default {
   },
 
   mutations: {
+    CHGLOADING (state, bol) {
+      state.loading = bol;
+    },
     SETDATALIST (state, list) {
       state.sortList = list.sortVOList;
     },
@@ -22,25 +28,30 @@ export default {
   },
 
   actions: {
-    getDataList ({ commit }) {
+    getDataList ({ commit, state }) {
       http.post('http://localhost:8080/meituan/openh5/poi/filterconditions?_=1560255541980&X-FOR-WITH=v6Rnitzgi%2BmQGvCWmTA53jOcHfZmKLK3IIECh%2FxjGpA8QsA1fyYqnd4dp%2BLVs5FJk%2B4DxuYsN02ZAYZXEqXDjPM1VeoPqSE7BBfTLcZAQIG9oQm9SaYypOqKDj3y%2BGFBtSDKvn%2F1QVOrKnAYyXKs9Q%3D%3D')
         .then(res => {
           commit('SETDATALIST', res.data.data);
         })
         .catch(err => {
           console.log(err);
+          state.iserror = true;
         });
     },
-    getGoodsList ({ commit, state }) {
-      http.post('http://localhost:8080/meituan/openh5/homepage/poilist?startIndex=0&sortId=0&multiFilterIds=&sliderSelectCode=&sliderSelectMin=&sliderSelectMax=&geoType=2&rankTraceId=&uuid=16b4fc580b2c8-064dfcd01291df-2d604637-3d10d-16b4fc580b3c8&platform=3&partner=4&originUrl=http%3A%2F%2Fh5.waimai.meituan.com%2Fwaimai%2Fmindex%2Fhome&riskLevel=71&optimusCode=10&wm_latitude=22626049&wm_longitude=113837908&wm_actual_latitude=&wm_actual_longitude=&_token=')
+    getGoodsList ({ commit, state }, pageNum) {
+      http.post(`http://localhost:8080/meituan/openh5/homepage/poilist?startIndex=${pageNum++}&sortId=0&multiFilterIds=&sliderSelectCode=&sliderSelectMin=&sliderSelectMax=&geoType=2&rankTraceId=&uuid=374D82ED2F0C8BFA14C8738B726CFE546EB152BF50936AA21B8F3213C83AC5D6&platform=3&partner=4&originUrl=http%3A%2F%2Fh5.waimai.meituan.com%2Fwaimai%2Fmindex%2Fhome&riskLevel=71&optimusCode=10&wm_latitude=0&wm_longitude=0&wm_actual_latitude=22694137&wm_actual_longitude=113793439&_token=`)
         .then(res => {
-          state.iserror = false;
           commit('SETGOODSLIST', res.data.data);
-          // console.log(res.data.data.shopList);
+          state.iserror = false;
+          commit('CHGLOADING', false); // 请求完成
+          if (!res.data.data.poiHasNextPage) {
+            state.finished = true;
+          }
         })
         .catch(err => {
           console.log(err);
           state.iserror = true;
+          commit('CHGLOADING', false); // 请求完成
         })
     }
   }
