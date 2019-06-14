@@ -35,16 +35,10 @@ export default {
       if (iphone.test(txt) && mima.test(pass)) {
         this.$refs.btn.innerHTML = '正在登录....'
         this.$refs.btn.disabled = true;
-        let userInfo = {
-          name: this.$refs.txt.value,
-          pwd: this.$refs.pass.value
-        }
         let name = this.$refs.txt.value;
         // console.log(this.$refs.txt.value);
         // console.log(this.$refs.pass.value);
-        console.log(userInfo);
         var login = (window.localStorage.getItem(name));
-        console.log(login);
         setTimeout(() => {
           if (login != null) {
             console.log(this.$route);

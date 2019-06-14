@@ -1,5 +1,13 @@
 <template>
-    <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
+    <van-list
+      v-model="loading"
+      :offset="50"
+      :finished="finished"
+      finished-text="没有更多了"
+      :error.sync="iserror"
+      error-text="网络异常，点击重试"
+      @load="onLoad"
+      >
       <van-cell v-for="item in shopList" :key="item.mtWmPoiId">
         <div class="goods-pic">
           <img :src="item.picUrl" alt="">
@@ -30,9 +38,7 @@ export default {
   name: 'goodslist',
   data () {
     return {
-      list: [],
-      loading: false,
-      finished: false
+      pageNum: 0,
     };
   },
   methods: {
@@ -40,38 +46,42 @@ export default {
       'getGoodsList'
     ]),
     onLoad () {
-      // 异步更新数据
-      setTimeout(() => {
-        for (let i = 0; i < 10; i++) {
-          this.list.push(this.list.length + 1);
-        }
-        // 加载状态结束
-        this.loading = false;
-
-        // 数据全部加载完成
-        if (this.list.length >= 40) {
-          this.finished = true;
-        }
-      }, 500);
+      console.log('触发onload');
+      // 加载更多数据
+      this.getGoodsList(this.pageNum++);
     }
   },
   computed: {
     ...mapState('liufei', [
-      'shopList'
-    ])
+      'shopList',
+      'iserror',
+      'finished'
+    ]),
+
+    loading: {
+      get () {
+        return this.$store.state.liufei.loading;
+      },
+
+      set (value) {
+        this.$store.commit('liufei/CHGLOADING', value);
+      }
+    }
   },
-  created () {
-    this.getGoodsList();
-  }
+  // created () {
+  //   this.getGoodsList(this.pageNum);
+  // }
 }
 </script>
 
 <style lang="scss" scoped>
 .van-list {
   width: 100%;
+  padding-bottom: 50px;
 
   .van-cell {
     padding: 0;
+
     .van-cell__value {
       padding: 0 10px;
       box-sizing: border-box;
@@ -113,9 +123,7 @@ export default {
           height: 18px;
           margin-top: 4px;
           font-size: 11px;
-          line-height: 16px;
-          align-items: center;
-          align-content: center;
+          line-height: 18px;
         }
 
         .shopdetail-line1 {
@@ -129,6 +137,7 @@ export default {
             justify-content: space-around;
 
             p {
+              height: 18px;
               display: flex;
               justify-content: space-around;
               align-items: center;
@@ -143,6 +152,7 @@ export default {
 
             span {
               font-size: 11px;
+              line-height: 18px;
             }
           }
 
@@ -152,6 +162,7 @@ export default {
 
             p {
               float: right;
+              font-size: 12px;
             }
           }
         }
