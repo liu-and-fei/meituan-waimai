@@ -4,14 +4,11 @@
     <ul
       v-for="(variety,index) in foodlist.categoryList"
       :key="variety.tag"
-      :index="index">
+      :index="index"
+      class="food-list"
+      >
       <h1>{{variety.categoryName}}</h1>
-      <!-- <li
-        v-for="goods in variety.supList"
-        :key="goods.supId">
-        <img :src="goods.bigImageUrl">
-      </li> -->
-      <goods :goodsList="variety.spuList"></goods>
+      <goods :goodsList="variety.spuList" class="spulist"></goods>
     </ul>
   </div>
 </template>
@@ -27,6 +24,9 @@ export default {
 }
 </script>
 <style>
+ul{
+  width: 100%;
+}
 ul h1{
   display: block;
   margin-left: 10px;
