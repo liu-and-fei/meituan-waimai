@@ -4,7 +4,7 @@ import router from './router/index'
 import store from './store/index'
 // import vant from 'vant'
 // import 'vant/lib/index.css'
-// Vue.use(Vant);
+// Vue.use(vant);
 
 import { Tab, Tabs, SubmitBar, NavBar, Search, Icon, Dialog, Cell, CellGroup, List, Actionsheet, Loading } from 'vant';
 Vue

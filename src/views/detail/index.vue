@@ -93,7 +93,11 @@ export default {
 
   created () {
     this.getFoodList();
+
+    this.getEstimate();
+
     this.getShopInfor();
+
   }
 
 }
