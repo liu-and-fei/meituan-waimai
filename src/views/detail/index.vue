@@ -100,7 +100,11 @@ export default {
     this.SETID(id);
     console.log(this.id)
     this.getFoodList();
+
+    this.getEstimate();
+
     this.getShopInfor();
+
   }
 }
 </script>
