@@ -1,6 +1,6 @@
 <template>
-    <router-link to="/detail/960020863616730">详情页</router-link>
-  <div id="home">
+    <div id="home">
+<!--      <router-link to="/detail/960020863616730">详情页</router-link>-->
     <div>
         <router-view></router-view>
         <Tabbar :tabs='tabs'></Tabbar>

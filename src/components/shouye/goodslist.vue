@@ -12,7 +12,7 @@
         tag="div"
         v-for="item in shopList"
         :to="'detail/'+item.mtWmPoiId"
-        :key="item.mtWmPoiId"
+        :key="item.mtWmPoiId+''+new Date().getTime()"
         class="tag-link"
       >
         <van-cell>

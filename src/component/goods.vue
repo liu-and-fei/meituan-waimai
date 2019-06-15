@@ -74,10 +74,11 @@ export default {
   height: 75px;
 }
 .goods-detail{
-  flex:1;
+  width: 180px;
+  /*flex:1;*/
 }
 .goodslist h2{
-  width: 200px;
+  width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -86,7 +87,7 @@ export default {
   font-weight:900;
 }
 .goodslist p,i{
-  width: 200px;
+  width: 100%;
   margin-bottom: 3px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -97,7 +98,7 @@ export default {
   word-break: break-all;
 }
 .goodslist .count{
-  width: 200px;
+  width: 100%;
   display: flex;
   justify-content: space-between
 }
@@ -113,7 +114,7 @@ export default {
   border-radius: 50%;
   background: yellow;
   text-align: center;
-  line-height: 25px;
+  line-height: 20px;
   color: #000;
   font-size: 20px;
   font-weight: bold;

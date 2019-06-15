@@ -39,7 +39,7 @@ export default {
         });
     },
     getGoodsList ({ commit, state }, pageNum) {
-      http.post(`http://localhost:8080/meituan/openh5/homepage/poilist?startIndex=${pageNum++}&sortId=0&multiFilterIds=&sliderSelectCode=&sliderSelectMin=&sliderSelectMax=&geoType=2&rankTraceId=&uuid=374D82ED2F0C8BFA14C8738B726CFE546EB152BF50936AA21B8F3213C83AC5D6&platform=3&partner=4&originUrl=http%3A%2F%2Fh5.waimai.meituan.com%2Fwaimai%2Fmindex%2Fhome&riskLevel=71&optimusCode=10&wm_latitude=0&wm_longitude=0&wm_actual_latitude=22694137&wm_actual_longitude=113793439&_token=`)
+      http.post(`http://localhost:8080/meituan/openh5/homepage/poilist?startIndex=${pageNum}&sortId=0&multiFilterIds=&sliderSelectCode=&sliderSelectMin=&sliderSelectMax=&geoType=2&rankTraceId=&uuid=374D82ED2F0C8BFA14C8738B726CFE546EB152BF50936AA21B8F3213C83AC5D6&platform=3&partner=4&originUrl=http%3A%2F%2Fh5.waimai.meituan.com%2Fwaimai%2Fmindex%2Fhome&riskLevel=71&optimusCode=10&wm_latitude=0&wm_longitude=0&wm_actual_latitude=22694137&wm_actual_longitude=113793439&_token=`)
         .then(res => {
           commit('SETGOODSLIST', res.data.data);
           state.iserror = false;
