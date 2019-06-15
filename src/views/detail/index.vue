@@ -47,7 +47,7 @@
 import FoodList from '@/component/foodlist.vue'
 import Estimate from '@/component/estimate.vue'
 import ShopInfor from '@/component/shopinfor.vue'
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapState, mapMutations } from 'vuex'
 export default {
   data () {
     return {
@@ -62,11 +62,14 @@ export default {
     Estimate
   },
   computed: {
+
     ...mapState('congcong', [
       'foodList',
       'shopinfor',
-      'total'
+      'total',
+      'id'
     ])
+
   },
 
   methods: {
@@ -74,31 +77,34 @@ export default {
       'getFoodList',
       'getShopInfor'
     ]),
+    ...mapMutations('congcong', [
+      'SETID'
+    ]),
     onChange (index) {
       this.activeKey = index;
     },
     onSubmit (price) {
     },
     findfood (index) {
-      console.log(this.foodList.data.categoryList)
       var lists = this.foodList.data.categoryList
       var height = 0
       for (var i = 0; i < index; i++) {
-        height += lists[i].spuList.length * 107
-        console.log(height)
+        height += lists[i].spuList.length * 107 + 36
       }
       document.getElementsByClassName('detail-list')[0].style.top = -height + 'px'
     }
-  },
 
-  created () {
+  },
+  mounted () {
+    var id = location.href.substring(31);
+    this.SETID(id);
+    console.log(this.id)
     this.getFoodList();
 
     this.getEstimate();
 
     this.getShopInfor();
   }
-
 }
 </script>
 <style>
@@ -115,7 +121,6 @@ export default {
     margin-left: 5px;
     margin-top: 5px;
   }
-
   .detail-pic{
     display: flex;
     width: 100%;

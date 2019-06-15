@@ -1,4 +1,5 @@
 <template>
+    <router-link to="/detail/960020863616730">详情页</router-link>
   <div id="home">
     <div>
         <router-view></router-view>

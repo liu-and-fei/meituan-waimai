@@ -6,6 +6,7 @@
       :key="variety.tag"
       :index="index"
       class="food-list"
+      :ref="variety.categoryName"
       >
       <h1>{{variety.categoryName}}</h1>
       <goods :goodsList="variety.spuList" class="spulist"></goods>
