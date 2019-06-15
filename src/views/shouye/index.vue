@@ -1,3 +1,3 @@
 <template>
-    <h1>我是首页</h1>
+    <router-link to="/detail/960020863616730">详情页</router-link>
 </template>

@@ -12,11 +12,6 @@ const routes = [
   {
     path: '/',
     component: shouye
-    // children:[
-    //     {
-
-    //     }
-    // ]
   },
   {
     path: '/dingdan',
@@ -27,7 +22,7 @@ const routes = [
     component: myde
   },
   {
-    path: '/detail',
+    path: '/detail/:id',
     component: detail
   }
 ]
