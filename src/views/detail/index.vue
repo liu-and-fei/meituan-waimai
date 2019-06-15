@@ -1,23 +1,24 @@
 <template>
   <div>
-    <div>
+    <van-loading class="loading" v-if="loading" />
+    <div v-if="!loading">
       <div class="detail-top">
         <router-link to="/" class="back">返回</router-link>
       </div>
       <div class="detail-pic">
-        <img class="top-pic" :src="foodList.data.shopInfo.shopPic">
+        <img class="top-pic" :src="foodList.shopInfo.shopPic">
         <div class="top-intro">
-          <p>{{foodList.data.shopInfo.distance}}</p>
+          <p>{{foodList.shopInfo.distance}}</p>
           <p>公告:欢迎光临,很高兴为您服务</p>
         </div>
       </div>
     </div>
-    <van-tabs v-model="active">
+    <van-tabs v-if="!loading" v-model="active">
       <van-tab title="点菜"  class="article">
         <div class="detail-nav">
           <van-badge-group :active-key="activeKey" @change="onChange">
             <van-badge
-              v-for="(nav,index) in foodList.data.categoryList"
+              v-for="(nav,index) in foodList.categoryList"
               :key="nav.tag"
               :index="index"
               :title="nav.categoryName"
@@ -26,16 +27,17 @@
               />
           </van-badge-group>
         </div>
-        <FoodList :foodlist="foodList.data" class="detail-list"></FoodList>
+        <FoodList :foodlist="foodList" class="detail-list"></FoodList>
       </van-tab>
       <van-tab title="评价">
         <Estimate></Estimate>
       </van-tab>
       <van-tab title="商家">
-        <ShopInfor :shopinfor="shopinfor.data"></ShopInfor>
+        <ShopInfor :shopinfor="shopinfor.data" />
       </van-tab>
     </van-tabs>
     <van-submit-bar
+      v-if="!loading"
       :price="total"
       button-text="去结算"
       @submit="onSubmit"
@@ -62,12 +64,12 @@ export default {
     Estimate
   },
   computed: {
-
     ...mapState('congcong', [
       'foodList',
       'shopinfor',
       'total',
-      'id'
+      'id',
+      'loading'
     ])
 
   },
@@ -86,7 +88,7 @@ export default {
     onSubmit (price) {
     },
     findfood (index) {
-      var lists = this.foodList.data.categoryList
+      var lists = this.foodList.categoryList
       var height = 0
       for (var i = 0; i < index; i++) {
         height += lists[i].spuList.length * 107 + 36
@@ -97,17 +99,20 @@ export default {
   },
   mounted () {
     var id = location.href.substring(31);
+    console.log(id)
     this.SETID(id);
-    console.log(this.id)
     this.getFoodList();
-
-    this.getEstimate();
-
     this.getShopInfor();
   }
 }
 </script>
 <style>
+  .loading{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
   .detail-top{
     width: 100%;
     height: 45px;
@@ -144,21 +149,24 @@ export default {
   }
   .article{
     position: relative;
-    width: 100%;
+    width: 295px;
+    height: 440px;
     display: flex;
-    overflow-y: auto;
+    overflow-x: hidden;
   }
   .article .detail-nav{
     flex-shrink: 0;
     width: 80px;
+    display: flex;
   }
   .article .detail-list{
+    width: 78%;
     position: absolute;
     left: 90px;
     z-index: 7;
   }
   .detail-total{
-    width: 375px;
+    width: 100%;
     position: fixed;
     bottom: 0;
   }

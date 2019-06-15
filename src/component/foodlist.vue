@@ -25,7 +25,7 @@ export default {
 }
 </script>
 <style>
-ul{
+  .food-list{
   width: 100%;
 }
 ul h1{
