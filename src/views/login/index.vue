@@ -11,7 +11,9 @@
       <input type="tel" ref="txt" @focus="handFocus"
        class="txt" placeholder="请输入手机号" maxlength="12" />
       <input type="password" ref="pass" @focus="handFocus"
-       class="pass" placeholder="请输入密码" maxlength="16"/>
+       class="pass" placeholder="请输入密码" maxlength="16"
+       @keyup.13="handleLogin"
+      />
       <span class="info" ref="info"></span>
       <button class="btn" ref="btn" @click="handleLogin">登录</button>
       <router-link class="reg" to="/reg">注册</router-link>
