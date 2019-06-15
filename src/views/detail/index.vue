@@ -104,7 +104,6 @@ export default {
     this.getEstimate();
 
     this.getShopInfor();
-
   }
 }
 </script>
